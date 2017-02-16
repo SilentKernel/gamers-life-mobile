@@ -1,0 +1,71 @@
+<ion-view view-title="{{title}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-refresh" ng-if="::disabledPullToRefresh"
+                ng-click="loadView(true)">
+        </button>
+        <button class="button button-icon button-clear ion-android-share-alt" ng-click="followSocial()">
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-refresher
+                ng-if="::disabledPullToRefresh == false"
+                pulling-text="Tirer pour actualiser..."
+                on-refresh="loadView(true)">
+        </ion-refresher>
+        <div ng-if="(status == 200)">
+            <ion-list>
+                <div ng-repeat="quote in quotes track by quote.id">
+                    <div class="item item-divider">
+                        {{ ::quote.title }} - {{::quote.game.name}}
+                    </div>
+                    <div class="item item-text-wrap">
+                        <div class="row">
+                            <div class="col-50">
+                                <i class="ion-person"></i> {{::quote.author}}
+                            </div>
+                            <div class="col-50 text-right">
+                                <i class="ion-calendar"></i> {{::quote.creationDate}}
+                            </div>
+                        </div>
+                        <br>
+                        <div ng-bind-html="quote.story">
+                            {{ ::quote.story }}
+                        </div>
+                    </div>
+                    <div class="button-bar">
+                        <button class="button button-small button-stable" ng-click="quoteComment(quote)">
+                            <i class="ion ion-chatbubble"></i> {{::quote.commentCount}}
+                            <span ng-if="::quote.commentCount < 2">Commentaire</span>
+                            <span ng-if="::quote.commentCount > 1">Commentaires</span>
+                            </buton>
+                            <button class="button button-small button-stable" ng-click="showQuoteImages(quote)"
+                                    ng-if="::quote.hasPicture">
+                                <i class="ion ion-images"></i> {{::quote.pictureCount}}
+                                <span ng-if="::quote.pictureCount == 1">Image</span>
+                                <span ng-if="::quote.pictureCount > 1">Images</span>
+                                </buton>
+                    </div>
+                    <div class="button-bar">
+                        <button class="button button-small button-balanced" ng-click="quoteVote(quote, 'plus', $index)">
+                            <i class="ion ion-thumbsup"></i> ({{ quote.plusOne }})
+                            </buton>
+                            <button class="button button-small button-assertive"
+                                    ng-click="quoteVote(quote, 'least', $index)">
+                                <i class="ion ion-thumbsdown"></i> ({{ quote.leastOne }})
+                                </buton>
+                                <button class="button button-small button-positive" ng-click="shareQuote(quote)">
+                                    <i class="ion ion-android-share"></i> ({{ ::quote.shareCount }})
+                                    </buton>
+                    </div>
+                    <br>
+            </ion-list>
+        </div>
+        <ion-infinite-scroll
+                immediate-check="false"
+                ng-if="moreDataCanBeLoaded()"
+                on-infinite="loadMore()"
+                distance="10%">
+        </ion-infinite-scroll>
+        </div>
+    </ion-content>
+</ion-view>

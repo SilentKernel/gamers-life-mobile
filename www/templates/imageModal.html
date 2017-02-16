@@ -1,0 +1,14 @@
+<div class="modal transparent" on-swipe-down="closeImageModal()">
+    <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="activeQuoteImageSlide">
+        <ion-slide ng-repeat="image in quoteImages">
+            <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false"
+                        zooming="true" min-zoom="{{quoteImageZoomMin}}" style="width: 100%; height: 100%"
+                        delegate-handle="scrollHandle{{$index}}"
+                        on-scroll="updateSlideQuoteImageStatus(activeQuoteImageSlide)"
+                        on-release="updateSlideStatus(activeSlide)">
+
+                <div class="image" style="background-image: url( {{image.src}} )"></div>
+            </ion-scroll>
+        </ion-slide>
+    </ion-slide-box>
+</div>

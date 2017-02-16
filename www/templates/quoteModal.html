@@ -1,0 +1,26 @@
+<div class="modal transparent" on-swipe-down="closeQuoteModal()">
+    <div class="quoteModal">
+        <div class="item-divider text-center">
+            {{ ::quote.title }} - {{::quote.game.name}}
+        </div>
+        <div class="quoteModalText">
+            <div class="item item-text-wrap">
+                <div class="row">
+                    <div class="col-50">
+                        <i class="ion-person"></i> {{::quote.author}}
+                    </div>
+                    <div class="col-50 text-right">
+                        <i class="ion-calendar"></i> {{::quote.creationDate}}
+                    </div>
+                </div>
+                <br>
+                <div ng-bind-html="quote.story">
+                    {{ ::quote.story }}
+                </div>
+            </div>
+        </div>
+        <div class="button-bar">
+            <button class="button button-small button-stable" ng-click="closeQuoteModal()">Fermer</button>
+        </div>
+    </div>
+</div>

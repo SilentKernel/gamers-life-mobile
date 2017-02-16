@@ -1,0 +1,64 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-dark">
+            <h1 class="title">Gamer's Life</h1>
+        </ion-header-bar>
+
+        <ion-content>
+            <ion-list>
+                <div class="item item-divider">
+                    #GL publiées
+                </div>
+                <ion-item menu-close href="#/app/quotes/gl-last">
+                    <i class="icon ion-arrow-up-a side-menu-icon"></i>
+                    <span class="side-menu-text">Dernières</span>
+                </ion-item>
+
+                <ion-item menu-close href="#/app/quotes/gl-first">
+                    <i class="icon ion-arrow-down-a side-menu-icon"></i>
+                    <span class="side-menu-text">Premières</span>
+                </ion-item>
+
+                <ion-item menu-close href="#/app/quotes/gl-plus">
+                    <i class="icon ion-thumbsup side-menu-icon"></i>
+                    <span class="side-menu-text">Les mieux notées</span>
+                </ion-item>
+
+                <ion-item menu-close href="#/app/quotes/gl-least">
+                    <i class="icon ion-thumbsdown side-menu-icon"></i>
+                    <span class="side-menu-text">Les moins bien notées</span>
+                </ion-item>
+
+                <ion-item menu-close href="#/app/quotes/gl-random">
+                    <i class="icon ion-shuffle side-menu-icon"></i>
+                    <span class="side-menu-text">Au hasard</span>
+                </ion-item>
+
+                <ion-item menu-close href="#/app/games/">
+                    <i class="icon ion-cube side-menu-icon"></i>
+                    <span class="side-menu-text">Trier par jeux</span>
+                </ion-item>
+                <div class="item item-divider">
+                    Autres
+                </div>
+                <ion-item menu-close href="#/app/about/">
+                    <i class="icon ion-information-circled side-menu-icon"></i>
+                    <span class="side-menu-text">A propos</span>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

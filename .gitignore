@@ -1,0 +1,27 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PhpStorme files #
+###################
+.idea/
+
+# Cordova useless file #
+########################
+node_modules/
+platforms/
+plugins/
+
+# Compiled CSS #
+########################
+www/css/*
+
+# JS Dependency injection #
+########################
+www/dist/*
